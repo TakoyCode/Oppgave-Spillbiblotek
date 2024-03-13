@@ -36,20 +36,22 @@ function createGamePreviewHtml() {
 function createConsoleHtml() {
     let html = "";
     html += /*HTML*/ `
-    <div onclick="selectConsole('Nintedo 64')" class="consoles ${selectedConsole == 'Nintedo 64' ? 'selectedConsole' : ''}">Nintedo 64</div>
-    <div onclick="selectConsole('Nintendo Entertainment System')" class="consoles ${selectedConsole == 'Nintendo Entertainment System' ? 'selectedConsole' : ''}">Nintendo Entertainment System</div>
-    <div onclick="selectConsole('Game Cube')"class="consoles ${selectedConsole == 'Game Cube' ? 'selectedConsole' : ''}">Game Cube</div>
+    <div class="consoleDiv">
+        <div onclick="selectConsole('Nintedo 64')" class="consoles ${selectedConsole == 'Nintedo 64' ? 'selectedConsole' : ''}">Nintedo 64</div>
+        <div onclick="selectConsole('Nintendo Entertainment System')" class="consoles ${selectedConsole == 'Nintendo Entertainment System' ? 'selectedConsole' : ''}">Nintendo Entertainment System</div>
+        <div onclick="selectConsole('Game Cube')"class="consoles ${selectedConsole == 'Game Cube' ? 'selectedConsole' : ''}">Game Cube</div>
+    </div>
     `;
     return html;
 }
 
 function createButtonsHtml() {
     if (randomGameChoice) return /*HTML*/ `
-        <div>
+    <div class ="randomGameChoiceDiv">
+        <div class ="randomGameInput">
             <label>Hvem consol skal spille være fra?</label>
-            <select onchange="">
-                <option></option>
-                <option>Tilfeldig Console</option>
+            <select onchange="gameRandomConsoleInput = this.value; console.log(gameRandomConsoleInput)">
+                <option value="">Tilfeldig Console</option>
                 <option>Nintedo 64</option>
                 <option>Nintendo Entertainment System</option>
                <option>Game Cube</option>
@@ -57,13 +59,15 @@ function createButtonsHtml() {
         </div>
         <div class="buttonsDiv">
             <button onclick="addGameView()" class="buttons">Legg til spill</button>
-            <button onclick="showRandomGame()" class="buttons">Random spill</button>
+            <button onclick="showRandomGame()" class="buttons"> Få ett random spill</button>
         </div>
+    </div>    
+        
     `;
     else return /*HTML*/ `
         <div class="buttonsDiv">
             <button onclick="addGameView()" class="buttons">Legg til spill</button>
-            <button onclick="showRandomGame()" class="buttons">Random spill</button>
+            <button onclick="openRandomGameInput()" class="buttons">Random spill</button>
         </div>
     `;
 }

@@ -28,9 +28,14 @@ body {
     display: flex;
     width: 1150px;
     height: 150px;
-    padding-left: 150px;
-    gap: 150px;
+    gap: 100px;
     margin: 40px;
+}
+
+.consoleDiv {
+    display: flex;
+    padding-left: 130px;
+    gap: 155px;
 }
 
 .consoles {
@@ -49,12 +54,25 @@ body {
 .buttonsDiv {
     display: flex;
     align-items: end;
+    margin-left: 25px;
     gap: 20px;
 }
 
 .buttons {
     width: 75px;
     height: 50px;
+}
+
+.randomGameInput {
+    margin-bottom: 20px;
+}
+
+.randomGameChoiceDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    margin-left: -18px;
 }
 
 .gamePreviewContainer {

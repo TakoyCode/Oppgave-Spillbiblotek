@@ -14,21 +14,32 @@ function addNewGame() {
     addGameView();
 };
 
-function showRandomGame() {
-    randomGameChoice = !randomGameChoice;
-    let randomGamesIndex = Math.floor(Math.random() * games.length);
-    openPreview(randomGamesIndex);
+function openRandomGameInput() {
+    randomGameChoice = true;
+    mainView();
 }
 
+function showRandomGame() {
+    let randomGamesIndex = null;
+    randomGameChoice = false;
 
-function closePreview() {
-    isPreviewOn = false;
-    mainView();
+    randomGamesIndex = Math.floor(Math.random() * games.length);
+    if (gameRandomConsoleInput != "") {
+        while (gameRandomConsoleInput != games[randomGamesIndex].console) {
+            randomGamesIndex = Math.floor(Math.random() * games.length);
+        }
+    }
+    openPreview(randomGamesIndex);
 }
 
 function openPreview(index) {
     selectedGameIndex = index;
     isPreviewOn = true;
+    mainView();
+}
+
+function closePreview() {
+    isPreviewOn = false;
     mainView();
 }
 

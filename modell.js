@@ -76,6 +76,7 @@ let gameConsoleInput = "";
 let gameReleaseYearInput = "";
 let gameImageInput = "";
 
+
 // Preview variable
 let isPreviewOn = false;
 
@@ -86,6 +87,7 @@ let selectedGameIndex = 0;
 let selectedConsole = null;
 
 // Choose what console for the random game
+let gameRandomConsoleInput = "";
 let randomGameChoice = false;
 
 /* // Sorting the games 

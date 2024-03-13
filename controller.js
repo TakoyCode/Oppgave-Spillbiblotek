@@ -15,6 +15,7 @@ function addNewGame() {
 };
 
 function showRandomGame() {
+    randomGameChoice = !randomGameChoice;
     let randomGamesIndex = Math.floor(Math.random() * games.length);
     openPreview(randomGamesIndex);
 }
@@ -37,7 +38,7 @@ function selectConsole(consoleName) {
     console.log(consoleName);
     mainView();
 }
-
+//
 
 /* function OLDaddNewGame() {
     let gameObject = {

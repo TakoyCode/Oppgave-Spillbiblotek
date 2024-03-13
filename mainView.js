@@ -4,7 +4,7 @@ function mainView() {
     let html = ``;
 
     html += /*HTML*/ `
-    <div class="consoleContainer">${createConsoleHtml()}</div>
+    <div class="consoleContainer">${createConsoleHtml()}${createButtonsHtml()}</div>
     <div class="gameContainer">${createGameHtml()}</div>
     <div>${isPreviewOn ? createGamePreviewHtml(0) : ""}</div>
     
@@ -39,13 +39,33 @@ function createConsoleHtml() {
     <div onclick="selectConsole('Nintedo 64')" class="consoles ${selectedConsole == 'Nintedo 64' ? 'selectedConsole' : ''}">Nintedo 64</div>
     <div onclick="selectConsole('Nintendo Entertainment System')" class="consoles ${selectedConsole == 'Nintendo Entertainment System' ? 'selectedConsole' : ''}">Nintendo Entertainment System</div>
     <div onclick="selectConsole('Game Cube')"class="consoles ${selectedConsole == 'Game Cube' ? 'selectedConsole' : ''}">Game Cube</div>
-    
-    <div class="buttonsDiv">
-    <button onclick="addGameView()" class="buttons">Legg til spill</button>
-    <button onclick="showRandomGame()" class="buttons">Random spill</button>
-    </div>
     `;
     return html;
+}
+
+function createButtonsHtml() {
+    if (randomGameChoice) return /*HTML*/ `
+        <div>
+            <label>Hvem consol skal spille være fra?</label>
+            <select onchange="">
+                <option></option>
+                <option>Tilfeldig Console</option>
+                <option>Nintedo 64</option>
+                <option>Nintendo Entertainment System</option>
+               <option>Game Cube</option>
+            </select>
+        </div>
+        <div class="buttonsDiv">
+            <button onclick="addGameView()" class="buttons">Legg til spill</button>
+            <button onclick="showRandomGame()" class="buttons">Random spill</button>
+        </div>
+    `;
+    else return /*HTML*/ `
+        <div class="buttonsDiv">
+            <button onclick="addGameView()" class="buttons">Legg til spill</button>
+            <button onclick="showRandomGame()" class="buttons">Random spill</button>
+        </div>
+    `;
 }
 
 

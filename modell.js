@@ -85,6 +85,9 @@ let selectedGameIndex = 0;
 // Selected console
 let selectedConsole = null;
 
+// Choose what console for the random game
+let randomGameChoice = false;
+
 /* // Sorting the games 
 let nintedo64Games = [games[0], games[1], games[2],];
 let nintedoEntertainmentSystemGames = [games[3], games[4], games[5],];

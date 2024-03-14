@@ -7,10 +7,10 @@ function mainView() {
     <div class="mainViewBackground">
         <div class="mainViewBackgroundInsideTopBorder"></div>
         <div class="mainViewBackgroundInsideBottomBorder"></div>
-        <div class="consoleContainer">${createConsoleHtml()}${createButtonsHtml()}</div>
+        <div class="consoleContainer">${createConsoleHtml()}${createButtonsHtml()}<div>${isPreviewOn ? createGamePreviewHtml(0) : ""}</div></div>
+        
         <div class="gameContainer">${createGameHtml()}</div>
     </div>
-    <div>${isPreviewOn ? createGamePreviewHtml(0) : ""}</div>
     `;
     app.innerHTML = html;
 }
@@ -22,7 +22,7 @@ function createGamePreviewHtml() {
 
     <div class="gamePreviewContainer">
         <div class="gamePreviewContent">
-            <img class="" src="${games[index].image}" alt="${games[index].image}"/>
+            <img src="${games[index].image}" alt="${games[index].image}"/>
             <div class="gamePreviewText">
                 <div>${games[index].title}</div>
                 <div>${games[index].console}</div >
@@ -82,9 +82,9 @@ function createGameHtml() {
         if (selectedConsole == games[i].console) {
             html += /*HTML*/ `
         <div onclick="openPreview(${i})" class = "gameDiv">
-        <div>${games[i].title}</div>
+        <!-- <div>${games[i].title}</div>
         <div>${games[i].console}</div >
-        <div>${games[i].releaseYear}</div>
+        <div>${games[i].releaseYear}</div> -->
         <img class="gameImg" src="${games[i].image}" alt="${games[i].image}"/>
         </div>
         `;
@@ -92,9 +92,9 @@ function createGameHtml() {
         else if (selectedConsole == null) {
             html += /*HTML*/ `
         <div onclick="openPreview(${i})" class = "gameDiv">
-        <div>${games[i].title}</div>
+        <!-- <div>${games[i].title}</div>
         <div>${games[i].console}</div >
-        <div>${games[i].releaseYear}</div>
+        <div>${games[i].releaseYear}</div> -->
         <img class="gameImg" src="${games[i].image}" alt="${games[i].image}"/>
         </div>
         `;

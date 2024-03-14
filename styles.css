@@ -4,26 +4,28 @@ body {
 
 .gameImg {
     width: auto;
-    height: 100px;
+    height: 150px;
 }
 
 .gameDiv {
     /* min-width: auto;
     max-width: 150px; */
-    width: 150px;
+    /* width: 150px;
     height: 175px;
-    background-color: gray;
+     background-color: gray; */
+    display: flex;
+    flex-direction: row;
     cursor: pointer;
 }
 
 .gameContainer {
     display: flex;
     flex-wrap: wrap;
-    width: 1200px;
-    height: 460px;
-    gap: 50px;
+    width: 1300px;
+    height: 430px;
+    gap: 30px;
     padding-top: 40px;
-    padding-left: 75px;
+    padding-left: 40px;
 }
 
 .consoleContainer {
@@ -85,7 +87,7 @@ body {
     width: 300px;
     height: 200px;
     margin-left: 75px;
-    margin-top: 50px;
+    margin-top: -40px;
 }
 
 .gamePreviewContent {
@@ -191,7 +193,7 @@ body {
     background-color: rgb(160, 82, 45);
     width: 1300px;
     padding: 0px;
-    height: 700px;
+    height: 650px;
     border: 40px solid rgb(88, 37, 12);
 }
 
@@ -208,7 +210,7 @@ body {
     position: absolute;
     width: 1300px;
     margin-left: -20px;
-    margin-top: 445px;
+    margin-top: 420px;
     background-color: rgb(160, 82, 45);
     border: 20px solid rgb(88, 37, 12);
 }

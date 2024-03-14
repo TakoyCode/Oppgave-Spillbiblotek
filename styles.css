@@ -20,7 +20,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     width: 1200px;
+    height: 460px;
     gap: 50px;
+    padding-top: 40px;
     padding-left: 75px;
 }
 
@@ -110,16 +112,17 @@ body {
 
 .selectedConsole {
     /*Lager en border på utsiden av elementet, 
-    men endrer ikke størelsen til elementet*/
-    outline: 5px solid black;
+    men endrer ikke størelsen til elementet
+    outline: 5px solid black; 
+    */
 
     /* Samme som outline, men endrer størelsen til elementet
     border: 5px solid black; 
     */
 
     /* Lager en border på insiden av elementet
+    */
     box-shadow: 0px 0px 0px 5px black inset;
-     */
 }
 
 .addGameViewContainer {
@@ -182,4 +185,30 @@ body {
     margin-left: 320px;
     background-color: rgb(217, 217, 217);
     border: 2px solid rgb(217, 217, 217);
+}
+
+.mainViewBackground {
+    background-color: rgb(160, 82, 45);
+    width: 1300px;
+    padding: 0px;
+    height: 700px;
+    border: 40px solid rgb(88, 37, 12);
+}
+
+.mainViewBackgroundInsideTopBorder {
+    position: absolute;
+    width: 1300px;
+    margin-left: -20px;
+    margin-top: 190px;
+    background-color: rgb(160, 82, 45);
+    border: 20px solid rgb(88, 37, 12);
+}
+
+.mainViewBackgroundInsideBottomBorder {
+    position: absolute;
+    width: 1300px;
+    margin-left: -20px;
+    margin-top: 445px;
+    background-color: rgb(160, 82, 45);
+    border: 20px solid rgb(88, 37, 12);
 }

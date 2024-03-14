@@ -4,10 +4,13 @@ function mainView() {
     let html = ``;
 
     html += /*HTML*/ `
-    <div class="consoleContainer">${createConsoleHtml()}${createButtonsHtml()}</div>
-    <div class="gameContainer">${createGameHtml()}</div>
+    <div class="mainViewBackground">
+        <div class="mainViewBackgroundInsideTopBorder"></div>
+        <div class="mainViewBackgroundInsideBottomBorder"></div>
+        <div class="consoleContainer">${createConsoleHtml()}${createButtonsHtml()}</div>
+        <div class="gameContainer">${createGameHtml()}</div>
+    </div>
     <div>${isPreviewOn ? createGamePreviewHtml(0) : ""}</div>
-    
     `;
     app.innerHTML = html;
 }

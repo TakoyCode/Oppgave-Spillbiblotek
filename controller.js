@@ -49,6 +49,54 @@ function selectConsole(consoleName) {
     console.log(consoleName);
     mainView();
 }
+
+/*
+Må fikse at dette fungerer med resten av koden 
+shuffle(games); 
+*/
+function shuffle(array) {
+    // Hvordan det var før : let currentIndex = array.length, randomIndex;
+    let randomIndex;
+
+    // While there remain elements to shuffle. Hvordan det var før: while (currentIndex > 0)
+    for (currentIndex = array.length; currentIndex > 0; currentIndex--) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+
+        // And swap it with the current element.
+        let temp = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temp;
+
+        /*   Hvordan det var før, jeg gjorde det mer leselig for meg
+        [array[currentIndex], array[randomIndex]] = [
+              array[randomIndex], array[currentIndex]]; 
+        */
+    }
+
+    games = array;
+    mainView();
+}
+/*
+function shuffle(array) {
+    let randomIndex;
+
+    // While there remain elements to shuffle.
+    for (let currentIndex = array.length; currentIndex > 0; currentIndex--) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+
+        // And swap it with the current element.
+        let temp = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temp;
+    }
+
+    return array;
+} */
+
 //
 
 /* function OLDaddNewGame() {

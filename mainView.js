@@ -40,9 +40,9 @@ function createConsoleHtml() {
     let html = "";
     html += /*HTML*/ `
     <div class="consoleDiv">
-        <div onclick="selectConsole('Nintedo 64')" class="consoles ${selectedConsole == 'Nintedo 64' ? 'selectedConsole' : ''}">Nintedo 64</div>
-        <div onclick="selectConsole('Nintendo Entertainment System')" class="consoles ${selectedConsole == 'Nintendo Entertainment System' ? 'selectedConsole' : ''}">Nintendo Entertainment System</div>
-        <div onclick="selectConsole('Game Cube')"class="consoles ${selectedConsole == 'Game Cube' ? 'selectedConsole' : ''}">Game Cube</div>
+        <img src="images/nintendo64.png" onclick="selectConsole('Nintedo 64')" class="consoles ${selectedConsole == 'Nintedo 64' ? 'selectedConsole' : ''}"/>
+        <img src="images/nintendoEntertainmentSystem.png" onclick="selectConsole('Nintendo Entertainment System')" class="consoles ${selectedConsole == 'Nintendo Entertainment System' ? 'selectedConsole' : ''}"/>
+        <img src="images/gameCube.webp" onclick="selectConsole('Game Cube')"class="gameCube ${selectedConsole == 'Game Cube' ? 'selectedConsole' : ''}"/>
     </div>
     `;
     return html;
@@ -66,7 +66,7 @@ function createButtonsHtml() {
         </div>
     </div>    
         
-    `;
+        `;
     else return /*HTML*/ `
         <div class="buttonsDiv">
             <button onclick="addGameView()" class="buttons">Legg til spill</button>
@@ -81,20 +81,14 @@ function createGameHtml() {
     for (let i = 0; i < games.length; i++) {
         if (selectedConsole == games[i].console) {
             html += /*HTML*/ `
-        <div onclick="openPreview(${i})" class = "gameDiv">
-        <!-- <div>${games[i].title}</div>
-        <div>${games[i].console}</div >
-        <div>${games[i].releaseYear}</div> -->
+        <div onclick="openPreview(${i})">
         <img class="gameImg" src="${games[i].image}" alt="${games[i].image}"/>
         </div>
         `;
         }
         else if (selectedConsole == null) {
             html += /*HTML*/ `
-        <div onclick="openPreview(${i})" class = "gameDiv">
-        <!-- <div>${games[i].title}</div>
-        <div>${games[i].console}</div >
-        <div>${games[i].releaseYear}</div> -->
+        <div onclick="openPreview(${i})">
         <img class="gameImg" src="${games[i].image}" alt="${games[i].image}"/>
         </div>
         `;
@@ -103,6 +97,12 @@ function createGameHtml() {
     return html;
 }
 
+/* 
+Old Code for createGameHtml()
+<div>${games[i].title}</div>
+<div>${games[i].console}</div >
+<div>${games[i].releaseYear}</div>
+ */
 
 /* function chooseGameHtml() {
     if (selectedConsole == 'Nintedo 64') return createNintedo64GamesHtml();

@@ -1,4 +1,3 @@
-//addGameView();
 function addGameView() {
     const app = document.getElementById('app');
     let html = ``;
@@ -27,10 +26,10 @@ function createGameViewInputs() {
     <div class="addGameViewInputText">
         <div>Console:</div>
         <select onchange="gameConsoleInput = this.value;">
-            <option>${gameConsoleInput}</option>
-            <option>Nintedo 64</option>
-            <option>Nintendo Entertainment System</option>
-            <option>Game Cube</option>
+            <option></option>
+            <option ${gameConsoleInput == 'Nintedo 64' ? 'selected' : ''}>Nintedo 64</option>
+            <option ${gameConsoleInput == 'Nintendo Entertainment System' ? 'selected' : ''}>Nintendo Entertainment System</option>
+            <option ${gameConsoleInput == 'Game Cube' ? 'selected' : ''}>Game Cube</option>
         </select>
     </div>
     <div class="addGameViewInputText">

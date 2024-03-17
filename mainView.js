@@ -1,4 +1,3 @@
-mainView();
 function mainView() {
     const app = document.getElementById('app');
     let html = ``;
@@ -7,7 +6,7 @@ function mainView() {
     <div class="mainViewBackground">
         <div class="mainViewBackgroundInsideTopBorder"></div>
         <div class="mainViewBackgroundInsideBottomBorder"></div>
-        <div class="consoleContainer">${createConsoleHtml()}${createButtonsHtml()}<div>${isPreviewOn ? createGamePreviewHtml(0) : ""}</div></div>
+        <div class="consoleContainer">${createConsoleHtml()}${createButtonsHtml()}<div>${isPreviewOn ? createGamePreviewHtml() : ""}</div></div>
         
         <div class="gameContainer">${createGameHtml()}</div>
     </div>
@@ -54,14 +53,15 @@ function createButtonsHtml() {
         <div class ="randomGameInput">
             <label>Hvem consol skal spille være fra?</label>
             <select onchange="gameRandomConsoleInput = this.value; console.log(gameRandomConsoleInput)">
-                <option value="">Tilfeldig Console</option>
-                <option>Nintedo 64</option>
-                <option>Nintendo Entertainment System</option>
-               <option>Game Cube</option>
+                <option ${gameRandomConsoleInput == '' ? 'selected' : ''} value="">Tilfeldig Console</option>
+                <option ${gameRandomConsoleInput == 'Nintedo 64' ? 'selected' : ''}>Nintedo 64</option>
+                <option ${gameRandomConsoleInput == 'Nintendo Entertainment System' ? 'selected' : ''}>Nintendo Entertainment System</option>
+               <option ${gameRandomConsoleInput == 'Game Cube' ? 'selected' : ''}>Game Cube</option>
             </select>
         </div>
         <div class="buttonsDiv">
             <button onclick="addGameView()" class="buttons">Legg til spill</button>
+            <button onclick="shuffle(games); mainView();" class="buttons">Shuffle spill</button>
             <button onclick="showRandomGame()" class="buttons"> Få ett random spill</button>
         </div>
     </div>    
@@ -69,13 +69,16 @@ function createButtonsHtml() {
         `;
     else return /*HTML*/ `
         <div class="buttonsDiv">
-            <button onclick="addGameView()" class="buttons">Legg til spill</button>
-            <button onclick="openRandomGameInput()" class="buttons">Random spill</button>
+        <button onclick="addGameView()" class="buttons">Legg til spill</button>
+        <button onclick="shuffle(games); mainView();" class="buttons">Shuffle spill</button>
+        <button onclick="openRandomGameInput()" class="buttons">Random spill</button>
         </div>
     `;
 }
 
 
+// onerror="this.onerror=null; this.src='images/pikmin.jpg';" 
+// kunne brukt ^^, hvis jeg hadde hatt lyst å ha byttet ugyldig gitt bilde, med ett eget satt bilde 
 function createGameHtml() {
     let html = "";
     for (let i = 0; i < games.length; i++) {

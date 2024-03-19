@@ -80,24 +80,35 @@ function createButtonsHtml() {
 // onerror="this.onerror=null; this.src='images/pikmin.jpg';" 
 // kunne brukt ^^, hvis jeg hadde hatt lyst å ha byttet ugyldig gitt bilde, med ett eget satt bilde 
 function createGameHtml() {
-    let html = "";
+    if (selectedConsole != null) return viewGamesForConsole()
+    return viewAllGames()
+}
+
+function viewGamesForConsole() {
+    let result = ""
     for (let i = 0; i < games.length; i++) {
         if (selectedConsole == games[i].console) {
-            html += /*HTML*/ `
-        <div onclick="openPreview(${i})">
-        <img class="gameImg" src="${games[i].image}" alt="${games[i].image}"/>
-        </div>
-        `;
-        }
-        else if (selectedConsole == null) {
-            html += /*HTML*/ `
+            result += /*HTML*/ `
         <div onclick="openPreview(${i})">
         <img class="gameImg" src="${games[i].image}" alt="${games[i].image}"/>
         </div>
         `;
         }
     }
-    return html;
+    return result;
+}
+
+function viewAllGames() {
+    let result = ""
+    for (let i = 0; i < games.length; i++) {
+        result += /*HTML*/ `
+            <div onclick="openPreview(${i})">
+            <img class="gameImg" src="${games[i].image}" alt="${games[i].image}"/>
+            </div>
+            `;
+    }
+    return result
+
 }
 
 /* 
